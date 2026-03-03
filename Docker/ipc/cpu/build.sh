@@ -1,20 +1,21 @@
 #!/usr/bin/env bash
+set -euo pipefail
 
-REPOSITORY="argnctu/moos-dawg-2024"
-TAG="ubuntu20.04_IPC"
+REPOSITORY="jssc-sensing"
+TAG="x86-noetic-v1.0"
 
 IMG="${REPOSITORY}:${TAG}"
 
 # Get the full path and name of the script
-SCRIPT_NAME=$(basename $BASH_SOURCE)
+SCRIPT_NAME="$(basename "${BASH_SOURCE[0]}")"
 
-SOURCE=${BASH_SOURCE[0]}
-while [ -L "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
-  SCRIPT_PATH=$(cd -P "$(dirname "$SOURCE")" >/dev/null 2>&1 && pwd)
-  SOURCE=$(readlink "$SOURCE")
-  [[ $SOURCE != /* ]] && SOURCE=$SCRIPT_PATH/$SOURCE
+SOURCE="${BASH_SOURCE[0]}"
+while [ -L "$SOURCE" ]; do
+  SCRIPT_PATH="$(cd -P "$(dirname "$SOURCE")" >/dev/null 2>&1 && pwd)"
+  SOURCE="$(readlink "$SOURCE")"
+  [[ $SOURCE != /* ]] && SOURCE="$SCRIPT_PATH/$SOURCE"
 done
-SCRIPT_PATH=$(cd -P "$(dirname "$SOURCE")" >/dev/null 2>&1 && pwd)
+SCRIPT_PATH="$(cd -P "$(dirname "$SOURCE")" >/dev/null 2>&1 && pwd)"
 
 # Check if the Dockerfile exists
 if [ -f "${SCRIPT_PATH}/Dockerfile" ]; then
@@ -29,13 +30,13 @@ fi
 echo "=================================================="
 BOLD_GREEN="\033[1;32m"
 END_COLOR="\033[0m"
-echo -e "Show Dockerfile:${BOLD_GREEN}"
-echo -e ""
+echo -e "Show Dockerfile:${BOLD_GREEN}\n"
 cat "${DOCKERFILE_PATH}"
 echo -e "${END_COLOR}"
-
 echo "=================================================="
-echo "Start building image"
+echo "Start building image: ${IMG}"
 
-docker buildx build --rm --load "$@" -f "${DOCKERFILE_PATH}" -t "${IMG}" "${SCRIPT_PATH}"
-
+docker buildx build --rm --load "$@" \
+  -f "${DOCKERFILE_PATH}" \
+  -t "${IMG}" \
+  "${SCRIPT_PATH}"

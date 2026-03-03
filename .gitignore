@@ -1,18 +1,25 @@
-# ROS
-build/
-devel/
-log/
-*.bag
+# ---------------------------
+# ROS / Catkin
+# ---------------------------
+catkin_ws/build/
+catkin_ws/devel/
+catkin_ws/install/
+catkin_ws/logs/
+catkin_ws/.catkin_tools/
 
+# ---------------------------
 # Python
+# ---------------------------
 __pycache__/
 *.pyc
 
-# VSCode
-.vscode/
+# ---------------------------
+# VSCode / Devcontainer
+# ---------------------------
+.devcontainer/
 
-# Docker
-*.tar
-
+# ---------------------------
 # System
+# ---------------------------
+*.log
 .DS_Store

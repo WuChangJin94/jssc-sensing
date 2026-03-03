@@ -1,7 +1,0 @@
-kc1400_driver
-/home/moos-dawg/moos-dawg-2024/catkin_ws/devel/.private/kc1400_driver/cmake.lock /home/moos-dawg/moos-dawg-2024/catkin_ws/devel/./cmake.lock
-/home/moos-dawg/moos-dawg-2024/catkin_ws/devel/.private/kc1400_driver/lib/pkgconfig/kc1400_driver.pc /home/moos-dawg/moos-dawg-2024/catkin_ws/devel/lib/pkgconfig/kc1400_driver.pc
-/home/moos-dawg/moos-dawg-2024/catkin_ws/devel/.private/kc1400_driver/lib/kc1400_driver/kc1400_bridge_node.py /home/moos-dawg/moos-dawg-2024/catkin_ws/devel/lib/kc1400_driver/kc1400_bridge_node.py
-/home/moos-dawg/moos-dawg-2024/catkin_ws/devel/.private/kc1400_driver/lib/kc1400_driver/cmake.lock /home/moos-dawg/moos-dawg-2024/catkin_ws/devel/lib/kc1400_driver/cmake.lock
-/home/moos-dawg/moos-dawg-2024/catkin_ws/devel/.private/kc1400_driver/share/kc1400_driver/cmake/kc1400_driverConfig.cmake /home/moos-dawg/moos-dawg-2024/catkin_ws/devel/share/kc1400_driver/cmake/kc1400_driverConfig.cmake
-/home/moos-dawg/moos-dawg-2024/catkin_ws/devel/.private/kc1400_driver/share/kc1400_driver/cmake/kc1400_driverConfig-version.cmake /home/moos-dawg/moos-dawg-2024/catkin_ws/devel/share/kc1400_driver/cmake/kc1400_driverConfig-version.cmake

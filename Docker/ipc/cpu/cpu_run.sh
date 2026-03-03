@@ -1,54 +1,67 @@
 #!/usr/bin/env bash
+set -euo pipefail
 
 ARGS=("$@")
 
-REPOSITORY="argnctu/moos-dawg-2024"
-TAG="ubuntu20.04_IPC"
-
+REPOSITORY="jssc-sensing"
+TAG="x86-noetic-v1.0"
 IMG="${REPOSITORY}:${TAG}"
 
-USER_NAME="moos-dawg"
-REPO_NAME="moos-dawg-2024"
-CONTAINER_NAME="moos-dawg-2024-ubuntu20.04_IPC"
+USER_NAME="jetseaai"
+REPO_NAME="jssc-sensing"
+CONTAINER_NAME="jssc-sensing-x86-noetic-v1.0"
 
-CONTAINER_ID=$(docker ps -aqf "ancestor=${IMG}")
-if [ $CONTAINER_ID ]; then
-  echo "Attach to docker container $CONTAINER_ID"
-  xhost +
-  docker exec --privileged -e DISPLAY=${DISPLAY} -e LINES="$(tput lines)" -it ${CONTAINER_ID} bash
-  xhost -
-  return
+# ------------------------------------------------------------
+# If container already exists, exec into it
+# ------------------------------------------------------------
+CONTAINER_ID="$(docker ps -aqf "name=^${CONTAINER_NAME}$" || true)"
+if [[ -n "${CONTAINER_ID}" ]]; then
+  echo "Attach to docker container ${CONTAINER_NAME}"
+  xhost + >/dev/null 2>&1 || true
+  docker exec --privileged \
+    -e DISPLAY="${DISPLAY:-:0}" \
+    -e LINES="$(tput lines 2>/dev/null || echo 40)" \
+    -it "${CONTAINER_NAME}" \
+    bash
+  xhost - >/dev/null 2>&1 || true
+  exit 0
 fi
 
-# Make sure processes in the container can connect to the x server
-# Necessary so gazebo can create a context for OpenGL rendering (even headless)
+# ------------------------------------------------------------
+# X11 authentication (optional, safe even if unused)
+# ------------------------------------------------------------
 XAUTH=/tmp/.docker.xauth
-if [ ! -f $XAUTH ]; then
-  xauth_list=$(xauth nlist $DISPLAY)
-  xauth_list=$(sed -e 's/^..../ffff/' <<<"$xauth_list")
-  if [ ! -z "$xauth_list" ]; then
-    echo "$xauth_list" | xauth -f $XAUTH nmerge -
-  else
-    touch $XAUTH
+if [[ ! -f "${XAUTH}" ]]; then
+  touch "${XAUTH}"
+  chmod a+r "${XAUTH}"
+
+  if command -v xauth >/dev/null 2>&1; then
+    xauth_list="$(xauth nlist "${DISPLAY:-:0}" 2>/dev/null || true)"
+    xauth_list="$(sed -e 's/^..../ffff/' <<<"${xauth_list}")"
+    if [[ -n "${xauth_list}" ]]; then
+      echo "${xauth_list}" | xauth -f "${XAUTH}" nmerge - >/dev/null 2>&1 || true
+    fi
   fi
-  chmod a+r $XAUTH
 fi
 
-# Prevent executing "docker run" when xauth failed.
-if [ ! -f $XAUTH ]; then
-  echo "[$XAUTH] was not properly created. Exiting..."
+if [[ ! -f "${XAUTH}" ]]; then
+  echo "[${XAUTH}] was not properly created. Exiting..."
   exit 1
 fi
+
+# ------------------------------------------------------------
+# Run container
+# ------------------------------------------------------------
+xhost + >/dev/null 2>&1 || true
 
 docker run \
   -it \
   --rm \
-  -e DISPLAY \
-  -e XAUTHORITY=$XAUTH \
-  -e HOME=/home/${USER_NAME} \
-  -e OPENAI_API_KEY=$OPENAI_API_KEY\
-  -e USER=root \
-  -v "$XAUTH:$XAUTH" \
+  -e DISPLAY="${DISPLAY:-:0}" \
+  -e XAUTHORITY="${XAUTH}" \
+  -e HOME="/home/${USER_NAME}" \
+  -e USER="root" \
+  -v "${XAUTH}:${XAUTH}" \
   -v "/home/${USER}/${REPO_NAME}:/home/${USER_NAME}/${REPO_NAME}" \
   -v "/tmp/.X11-unix:/tmp/.X11-unix" \
   -v "/etc/localtime:/etc/localtime:ro" \
@@ -63,4 +76,4 @@ docker run \
   "${IMG}" \
   bash
 
-# -e "TERM=xterm-256color" \
+xhost - >/dev/null 2>&1 || true

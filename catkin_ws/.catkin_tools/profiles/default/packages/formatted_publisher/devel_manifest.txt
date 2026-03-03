@@ -1,7 +1,0 @@
-formatted_publisher
-/home/moos-dawg/moos-dawg-2024/catkin_ws/devel/.private/formatted_publisher/cmake.lock /home/moos-dawg/moos-dawg-2024/catkin_ws/devel/./cmake.lock
-/home/moos-dawg/moos-dawg-2024/catkin_ws/devel/.private/formatted_publisher/lib/pkgconfig/formatted_publisher.pc /home/moos-dawg/moos-dawg-2024/catkin_ws/devel/lib/pkgconfig/formatted_publisher.pc
-/home/moos-dawg/moos-dawg-2024/catkin_ws/devel/.private/formatted_publisher/lib/formatted_publisher/formatted_publisher_node.py /home/moos-dawg/moos-dawg-2024/catkin_ws/devel/lib/formatted_publisher/formatted_publisher_node.py
-/home/moos-dawg/moos-dawg-2024/catkin_ws/devel/.private/formatted_publisher/lib/formatted_publisher/cmake.lock /home/moos-dawg/moos-dawg-2024/catkin_ws/devel/lib/formatted_publisher/cmake.lock
-/home/moos-dawg/moos-dawg-2024/catkin_ws/devel/.private/formatted_publisher/share/formatted_publisher/cmake/formatted_publisherConfig.cmake /home/moos-dawg/moos-dawg-2024/catkin_ws/devel/share/formatted_publisher/cmake/formatted_publisherConfig.cmake
-/home/moos-dawg/moos-dawg-2024/catkin_ws/devel/.private/formatted_publisher/share/formatted_publisher/cmake/formatted_publisherConfig-version.cmake /home/moos-dawg/moos-dawg-2024/catkin_ws/devel/share/formatted_publisher/cmake/formatted_publisherConfig-version.cmake
