@@ -1,0 +1,7 @@
+<launch>
+  <node pkg="robot_localization" type="ekf_localization_node"
+        name="ekf_global" output="screen">
+    <rosparam command="load"
+      file="$(find js5_localization)/config/ekf.yaml"/>
+  </node>
+</launch>

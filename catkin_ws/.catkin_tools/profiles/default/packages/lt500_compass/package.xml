@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>lt500_compass</name>
+  <version>0.0.1</version>
+  <description>LT-500 AHRS (NMEA-0183 over UDP) to ROS IMU + heading</description>
+  <maintainer email="changjinwu.en12@nycu.edu.tw">CJ</maintainer>
+  <license>MIT</license>
+  <buildtool_depend>catkin</buildtool_depend>
+  <exec_depend>rospy</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend>
+</package>
+

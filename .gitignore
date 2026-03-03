@@ -1,0 +1,18 @@
+# ROS
+build/
+devel/
+log/
+*.bag
+
+# Python
+__pycache__/
+*.pyc
+
+# VSCode
+.vscode/
+
+# Docker
+*.tar
+
+# System
+.DS_Store

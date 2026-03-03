@@ -1,0 +1,12 @@
+Symlinking /home/moos-dawg/moos-dawg-2024/catkin_ws/devel/lib/libvelodyne_laserscan.so
+Symlinking /home/moos-dawg/moos-dawg-2024/catkin_ws/devel/lib/pkgconfig/velodyne_laserscan.pc
+Symlinking /home/moos-dawg/moos-dawg-2024/catkin_ws/devel/lib/velodyne_laserscan/velodyne_laserscan_node
+Symlinking /home/moos-dawg/moos-dawg-2024/catkin_ws/devel/lib/python3/dist-packages/velodyne_laserscan/__init__.py
+Symlinking /home/moos-dawg/moos-dawg-2024/catkin_ws/devel/lib/python3/dist-packages/velodyne_laserscan/cfg/VelodyneLaserScanConfig.py
+Symlinking /home/moos-dawg/moos-dawg-2024/catkin_ws/devel/lib/python3/dist-packages/velodyne_laserscan/cfg/__init__.py
+Symlinking /home/moos-dawg/moos-dawg-2024/catkin_ws/devel/share/velodyne_laserscan/docs/VelodyneLaserScanConfig-usage.dox
+Symlinking /home/moos-dawg/moos-dawg-2024/catkin_ws/devel/share/velodyne_laserscan/docs/VelodyneLaserScanConfig.dox
+Symlinking /home/moos-dawg/moos-dawg-2024/catkin_ws/devel/share/velodyne_laserscan/docs/VelodyneLaserScanConfig.wikidoc
+Symlinking /home/moos-dawg/moos-dawg-2024/catkin_ws/devel/share/velodyne_laserscan/cmake/velodyne_laserscanConfig.cmake
+Symlinking /home/moos-dawg/moos-dawg-2024/catkin_ws/devel/share/velodyne_laserscan/cmake/velodyne_laserscanConfig-version.cmake
+Symlinking /home/moos-dawg/moos-dawg-2024/catkin_ws/devel/include/velodyne_laserscan/VelodyneLaserScanConfig.h

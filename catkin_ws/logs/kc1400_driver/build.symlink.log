@@ -1,0 +1,5 @@
+Symlinking /home/moos-dawg/moos-dawg-2024/catkin_ws/devel/lib/pkgconfig/kc1400_driver.pc
+Symlinking /home/moos-dawg/moos-dawg-2024/catkin_ws/devel/lib/kc1400_driver/kc1400_bridge_node.py
+Symlinking /home/moos-dawg/moos-dawg-2024/catkin_ws/devel/lib/kc1400_driver/cmake.lock
+Symlinking /home/moos-dawg/moos-dawg-2024/catkin_ws/devel/share/kc1400_driver/cmake/kc1400_driverConfig.cmake
+Symlinking /home/moos-dawg/moos-dawg-2024/catkin_ws/devel/share/kc1400_driver/cmake/kc1400_driverConfig-version.cmake

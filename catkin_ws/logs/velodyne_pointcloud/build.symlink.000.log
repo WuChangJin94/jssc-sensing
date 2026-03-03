@@ -1,0 +1,14 @@
+Symlinking /home/moos-dawg/moos-dawg-2024/catkin_ws/devel/lib/libtransform_nodelet.so
+Symlinking /home/moos-dawg/moos-dawg-2024/catkin_ws/devel/lib/libvelodyne_rawdata.so
+Symlinking /home/moos-dawg/moos-dawg-2024/catkin_ws/devel/lib/libdata_containers.so
+Symlinking /home/moos-dawg/moos-dawg-2024/catkin_ws/devel/lib/pkgconfig/velodyne_pointcloud.pc
+Symlinking /home/moos-dawg/moos-dawg-2024/catkin_ws/devel/lib/velodyne_pointcloud/transform_node
+Symlinking /home/moos-dawg/moos-dawg-2024/catkin_ws/devel/lib/python3/dist-packages/velodyne_pointcloud/__init__.py
+Symlinking /home/moos-dawg/moos-dawg-2024/catkin_ws/devel/lib/python3/dist-packages/velodyne_pointcloud/cfg/__init__.py
+Symlinking /home/moos-dawg/moos-dawg-2024/catkin_ws/devel/lib/python3/dist-packages/velodyne_pointcloud/cfg/TransformNodeConfig.py
+Symlinking /home/moos-dawg/moos-dawg-2024/catkin_ws/devel/share/velodyne_pointcloud/docs/TransformNodeConfig.dox
+Symlinking /home/moos-dawg/moos-dawg-2024/catkin_ws/devel/share/velodyne_pointcloud/docs/TransformNodeConfig-usage.dox
+Symlinking /home/moos-dawg/moos-dawg-2024/catkin_ws/devel/share/velodyne_pointcloud/docs/TransformNodeConfig.wikidoc
+Symlinking /home/moos-dawg/moos-dawg-2024/catkin_ws/devel/share/velodyne_pointcloud/cmake/velodyne_pointcloudConfig.cmake
+Symlinking /home/moos-dawg/moos-dawg-2024/catkin_ws/devel/share/velodyne_pointcloud/cmake/velodyne_pointcloudConfig-version.cmake
+Symlinking /home/moos-dawg/moos-dawg-2024/catkin_ws/devel/include/velodyne_pointcloud/TransformNodeConfig.h

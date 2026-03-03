@@ -1,0 +1,38 @@
+<launch>
+
+  <node pkg="tf2_ros" type="static_transform_publisher" name="bl_to_gps" args="0 0 0 0 0 0 base_link gps" />
+  <node pkg="tf2_ros" type="static_transform_publisher" name="bl_to_kc1400" args="0 0 0 0 0 0 base_link kc1400" />
+
+  <!-- 1) IMU BRIDGING -->
+  <node pkg="js5_localization" type="kc1400_imu_bridge.py"
+        name="kc1400_imu_bridge" output="screen"/>
+
+  <!-- 1.5) VELOCITY BRIDGING -->
+  <node pkg="js5_localization" type="velocity_bridge.py"
+        name="velocity_bridge" output="screen"/>
+
+  <!-- 2) EKF FUSION -->
+  <node pkg="robot_localization" type="ekf_localization_node"
+        name="ekf_global" output="screen">
+    <rosparam command="load"
+      file="$(find js5_localization)/config/ekf.yaml"/>
+  </node>
+
+  <!-- 3) GPS TRANSFORMATION (kc1400 only) -->
+  <node pkg="robot_localization" type="navsat_transform_node"
+        name="navsat_gps" output="screen"
+        launch-prefix="bash -c 'sleep 3; $0 $@'">
+
+    <rosparam command="load"
+      file="$(find js5_localization)/config/navsat_gps2.yaml"/>
+
+    <remap from="gps/fix" to="/kc1400/navsat_fix"/>
+    <remap from="imu/data" to="/kc1400/imu"/>
+    <remap from="odometry/gps" to="/gps/odom"/>
+  </node>
+
+  <!-- 4) FORMATTER -->
+  <node pkg="js5_localization" type="formatter.py"
+        name="js5_formatter" output="screen"/>
+
+</launch>

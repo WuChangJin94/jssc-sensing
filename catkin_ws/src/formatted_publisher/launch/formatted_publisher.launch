@@ -1,0 +1,11 @@
+<launch>
+  <node pkg="formatted_publisher"
+        type="formatted_publisher_node.py"
+        name="formatted_publisher"
+        output="screen">
+
+    <param name="home_lat" value="22.580602"/>
+    <param name="home_lon" value="120.296392"/>
+
+  </node>
+</launch>

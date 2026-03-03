@@ -1,0 +1,10 @@
+frequency: 20
+delay: 0.0
+magnetic_declination_radians: 0.0
+yaw_offset: 0.0
+zero_altitude: true
+publish_filtered_gps: false
+use_odometry_yaw: false
+wait_for_datum: false
+
+datum: [22.5027528, 120.326114, 0.0]
